@@ -1,2 +1,1 @@
 ﻿# AI-Crop-Disease-Detection-Advisory
-
