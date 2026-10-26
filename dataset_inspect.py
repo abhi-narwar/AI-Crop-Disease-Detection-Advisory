@@ -6,7 +6,7 @@ DATA_DIR = Path("data/raw")
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png"}
 
 if not DATA_DIR.exists():
-    print("Dataset folder nahi mila:", DATA_DIR)
+    print("Dataset folder not found:", DATA_DIR)
 else:
     total_images = 0
 
@@ -31,4 +31,4 @@ else:
     print("Total images:", total_images)
 
     if total_images == 0:
-        print("Check karo: dataset folders ke andar images hain?")
+        print("Check : dataset folders contains images?")
