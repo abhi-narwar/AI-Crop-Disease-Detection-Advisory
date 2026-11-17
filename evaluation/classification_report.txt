@@ -1,0 +1,21 @@
+                                             precision    recall  f1-score   support
+
+              Pepper__bell___Bacterial_spot     0.8485    0.7517    0.7972       149
+                     Pepper__bell___healthy     0.8565    0.8643    0.8604       221
+                      Potato___Early_blight     0.8944    0.8467    0.8699       150
+                       Potato___Late_blight     0.8182    0.7200    0.7660       150
+                           Potato___healthy     0.4000    0.1739    0.2424        23
+                      Tomato_Bacterial_spot     0.8631    0.9091    0.8855       319
+                        Tomato_Early_blight     0.8051    0.6333    0.7090       150
+                         Tomato_Late_blight     0.7529    0.8982    0.8192       285
+                           Tomato_Leaf_Mold     0.8819    0.7832    0.8296       143
+                  Tomato_Septoria_leaf_spot     0.7917    0.8604    0.8246       265
+Tomato_Spider_mites_Two_spotted_spider_mite     0.8555    0.8690    0.8622       252
+                        Tomato__Target_Spot     0.7890    0.8190    0.8037       210
+      Tomato__Tomato_YellowLeaf__Curl_Virus     0.8907    0.9148    0.9026       481
+                Tomato__Tomato_mosaic_virus     0.9444    0.6071    0.7391        56
+                             Tomato_healthy     0.9582    0.9662    0.9622       237
+
+                                   accuracy                         0.8467      3091
+                                  macro avg     0.8233    0.7745    0.7916      3091
+                               weighted avg     0.8470    0.8467    0.8440      3091

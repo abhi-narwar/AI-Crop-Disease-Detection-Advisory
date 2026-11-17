@@ -1,0 +1,145 @@
+{
+    "classes": {
+        "Pepper__bell___Bacterial_spot": {
+            "total": 997,
+            "train": 698,
+            "val": 150,
+            "test": 149,
+            "train_pct": 70.01,
+            "val_pct": 15.05,
+            "test_pct": 14.94
+        },
+        "Pepper__bell___healthy": {
+            "total": 1478,
+            "train": 1035,
+            "val": 222,
+            "test": 221,
+            "train_pct": 70.03,
+            "val_pct": 15.02,
+            "test_pct": 14.95
+        },
+        "Potato___Early_blight": {
+            "total": 1000,
+            "train": 700,
+            "val": 150,
+            "test": 150,
+            "train_pct": 70.0,
+            "val_pct": 15.0,
+            "test_pct": 15.0
+        },
+        "Potato___Late_blight": {
+            "total": 1000,
+            "train": 700,
+            "val": 150,
+            "test": 150,
+            "train_pct": 70.0,
+            "val_pct": 15.0,
+            "test_pct": 15.0
+        },
+        "Potato___healthy": {
+            "total": 152,
+            "train": 106,
+            "val": 23,
+            "test": 23,
+            "train_pct": 69.74,
+            "val_pct": 15.13,
+            "test_pct": 15.13
+        },
+        "Tomato_Bacterial_spot": {
+            "total": 2127,
+            "train": 1489,
+            "val": 319,
+            "test": 319,
+            "train_pct": 70.0,
+            "val_pct": 15.0,
+            "test_pct": 15.0
+        },
+        "Tomato_Early_blight": {
+            "total": 1000,
+            "train": 700,
+            "val": 150,
+            "test": 150,
+            "train_pct": 70.0,
+            "val_pct": 15.0,
+            "test_pct": 15.0
+        },
+        "Tomato_Late_blight": {
+            "total": 1901,
+            "train": 1331,
+            "val": 285,
+            "test": 285,
+            "train_pct": 70.02,
+            "val_pct": 14.99,
+            "test_pct": 14.99
+        },
+        "Tomato_Leaf_Mold": {
+            "total": 952,
+            "train": 666,
+            "val": 143,
+            "test": 143,
+            "train_pct": 69.96,
+            "val_pct": 15.02,
+            "test_pct": 15.02
+        },
+        "Tomato_Septoria_leaf_spot": {
+            "total": 1771,
+            "train": 1240,
+            "val": 266,
+            "test": 265,
+            "train_pct": 70.02,
+            "val_pct": 15.02,
+            "test_pct": 14.96
+        },
+        "Tomato_Spider_mites_Two_spotted_spider_mite": {
+            "total": 1676,
+            "train": 1173,
+            "val": 251,
+            "test": 252,
+            "train_pct": 69.99,
+            "val_pct": 14.98,
+            "test_pct": 15.04
+        },
+        "Tomato__Target_Spot": {
+            "total": 1404,
+            "train": 983,
+            "val": 211,
+            "test": 210,
+            "train_pct": 70.01,
+            "val_pct": 15.03,
+            "test_pct": 14.96
+        },
+        "Tomato__Tomato_YellowLeaf__Curl_Virus": {
+            "total": 3208,
+            "train": 2246,
+            "val": 481,
+            "test": 481,
+            "train_pct": 70.01,
+            "val_pct": 14.99,
+            "test_pct": 14.99
+        },
+        "Tomato__Tomato_mosaic_virus": {
+            "total": 373,
+            "train": 261,
+            "val": 56,
+            "test": 56,
+            "train_pct": 69.97,
+            "val_pct": 15.01,
+            "test_pct": 15.01
+        },
+        "Tomato_healthy": {
+            "total": 1585,
+            "train": 1110,
+            "val": 238,
+            "test": 237,
+            "train_pct": 70.03,
+            "val_pct": 15.02,
+            "test_pct": 14.95
+        }
+    },
+    "totals": {
+        "train": 14438,
+        "val": 3095,
+        "test": 3091,
+        "total": 20624
+    }
+}

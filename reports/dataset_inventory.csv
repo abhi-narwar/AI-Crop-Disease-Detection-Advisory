@@ -1,0 +1,16 @@
+folder_name,crop,condition,is_target_9,is_healthy,total_images,valid_images,corrupt_images,duplicate_images,common_dimension,extensions
+Pepper__bell___Bacterial_spot,Pepper,Pepper - bell - Bacterial spot,True,False,997,997,0,0,256x256,['.jpg']
+Pepper__bell___healthy,Pepper,Pepper - bell - healthy,True,True,1478,1478,0,0,256x256,"['.png', '.jpg']"
+Potato___Early_blight,Potato,Potato - Early blight,True,False,1000,1000,0,0,256x256,['.jpg']
+Potato___Late_blight,Potato,Potato - Late blight,True,False,1000,1000,0,0,256x256,['.jpg']
+Potato___healthy,Potato,Potato - healthy,True,True,152,152,0,0,256x256,['.jpg']
+Tomato_Bacterial_spot,Tomato,Tomato Bacterial spot,True,False,2127,2127,0,0,256x256,['.jpg']
+Tomato_Early_blight,Tomato,Tomato Early blight,True,False,1000,1000,0,0,256x256,['.jpg']
+Tomato_Late_blight,Tomato,Tomato Late blight,True,False,1909,1909,0,8,256x256,"['.jpeg', '.jpg']"
+Tomato_Leaf_Mold,Tomato,Tomato Leaf Mold,False,False,952,952,0,0,256x256,['.jpg']
+Tomato_Septoria_leaf_spot,Tomato,Tomato Septoria leaf spot,False,False,1771,1771,0,0,256x256,['.jpg']
+Tomato_Spider_mites_Two_spotted_spider_mite,Tomato,Tomato Spider mites Two spotted spider mite,False,False,1676,1676,0,0,256x256,['.jpg']
+Tomato__Target_Spot,Tomato,Tomato - Target Spot,False,False,1404,1404,0,0,256x256,['.jpg']
+Tomato__Tomato_YellowLeaf__Curl_Virus,Tomato,Tomato - Tomato YellowLeaf - Curl Virus,False,False,3209,3208,1,0,256x256,"['', '.jpg']"
+Tomato__Tomato_mosaic_virus,Tomato,Tomato - Tomato mosaic virus,False,False,373,373,0,0,256x256,['.jpg']
+Tomato_healthy,Tomato,Tomato healthy,True,True,1591,1591,0,6,256x256,['.jpg']

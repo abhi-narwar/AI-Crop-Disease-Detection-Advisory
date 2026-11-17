@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Crop Disease Detection & Advisory System</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">
+                <span class="brand-icon">🌱</span>
+                <span class="brand-text">AgriGuard <span class="brand-badge">AI</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#detection" class="nav-link">Disease Detection</a>
+                <a href="#classes" class="nav-link">Supported Crops</a>
+                <a href="#about" class="nav-link">About Project</a>
+                <a href="/docs" target="_blank" class="nav-link api-btn">API Docs ↗</a>
+            </nav>
+            <div class="backend-pill" id="backendStatus">
+                <span class="status-dot pulsing"></span>
+                <span class="status-text">Checking API...</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-badge">Deep Learning • MobileNetV2 Architecture</div>
+            <h1 class="hero-title">Intelligent Crop Disease Detection & Advisory</h1>
+            <p class="hero-subtitle">
+                Protect your harvest with precision AI. Upload high-resolution leaf photographs of Tomato, Potato, or Pepper crops to receive instant pathological identification and agronomist-verified management advisories.
+            </p>
+            <div class="hero-actions">
+                <a href="#detection" class="btn btn-primary">
+                    <span>Scan Leaf Image</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#classes" class="btn btn-secondary">Explore 15 Classes</a>
+            </div>
+
+            <!-- Key Metric Counters -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Crop & Disease Classes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20,625</div>
+                    <div class="stat-label">Verified Dataset Images</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">84.7%</div>
+                    <div class="stat-label">Test Set Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">&lt; 150 ms</div>
+                    <div class="stat-label">Inference Latency</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disease Detection Section -->
+    <section id="detection" class="section detection-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">DIAGNOSTIC WORKFLOW</span>
+                <h2 class="section-title">Upload Leaf Image for Diagnosis</h2>
+                <p class="section-desc">Upload a clear photo of an individual leaf under natural lighting for optimal diagnostic accuracy.</p>
+            </div>
+
+            <div class="detection-grid">
+                <!-- Upload & Preview Card -->
+                <div class="card upload-card">
+                    <div class="drop-zone" id="dropZone">
+                        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+                        <div class="drop-zone-prompt" id="dropPrompt">
+                            <div class="upload-icon-circle">
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            </div>
+                            <h3>Drag & Drop Leaf Photograph</h3>
+                            <p>or <button type="button" class="browse-btn" id="browseBtn">browse local files</button></p>
+                            <span class="file-hint">Supports JPG, PNG, WEBP (Max 10 MB)</span>
+                        </div>
+
+                        <!-- Image Preview -->
+                        <div class="preview-container" id="previewContainer" style="display: none;">
+                            <img id="imagePreview" alt="Uploaded Leaf Preview" class="preview-img">
+                            <div class="preview-overlay">
+                                <button type="button" class="btn-clear" id="clearBtn" title="Remove image">✕</button>
+                            </div>
+                            <div class="file-meta" id="fileMeta"></div>
+                        </div>
+                    </div>
+
+                    <div class="upload-actions">
+                        <button type="button" class="btn btn-predict" id="predictBtn" disabled>
+                            <span class="btn-text">Diagnose Leaf Disease</span>
+                            <div class="spinner" id="btnSpinner" style="display: none;"></div>
+                        </button>
+                    </div>
+
+                    <!-- Error Alert -->
+                    <div class="alert alert-error" id="errorAlert" style="display: none;">
+                        <span class="alert-icon">⚠️</span>
+                        <div class="alert-content" id="errorMsg"></div>
+                    </div>
+                </div>
+
+                <!-- Prediction Results Card -->
+                <div class="card result-card" id="resultCard">
+                    <!-- Placeholder State -->
+                    <div class="result-placeholder" id="resultPlaceholder">
+                        <div class="placeholder-icon">🔬</div>
+                        <h3>Awaiting Leaf Diagnosis</h3>
+                        <p>Upload a leaf photograph and click "Diagnose Leaf Disease" to view real-time AI classification and treatment advisory.</p>
+                    </div>
+
+                    <!-- Live Results View -->
+                    <div class="result-content" id="resultContent" style="display: none;">
+                        <div class="result-header">
+                            <div>
+                                <span class="result-kicker">PREDICTED PRIMARY DIAGNOSIS</span>
+                                <h3 class="predicted-disease" id="resDiseaseName">Early Blight</h3>
+                                <div class="crop-badge-row">
+                                    <span class="badge badge-crop" id="resCropName">Tomato</span>
+                                    <span class="badge" id="resHealthStatus">Diseased</span>
+                                </div>
+                            </div>
+                            <div class="confidence-circle" id="resConfidenceCircle">
+                                <span class="confidence-val" id="resConfidenceVal">94.5%</span>
+                                <span class="confidence-sub">Confidence</span>
+                            </div>
+                        </div>
+
+                        <!-- Top 3 Probability Distribution -->
+                        <div class="top-predictions-box">
+                            <h4 class="box-title">Top-3 Confidence Distribution</h4>
+                            <div class="prediction-bars" id="topPredictionsList"></div>
+                        </div>
+
+                        <!-- Agronomic Advisory Accordion -->
+                        <div class="advisory-box">
+                            <h4 class="box-title">Agronomic Management Advisory</h4>
+                            
+                            <div class="advisory-item">
+                                <div class="advisory-label">🔍 Observed Symptoms:</div>
+                                <ul class="advisory-list" id="advSymptoms"></ul>
+                            </div>
+
+                            <div class="advisory-item">
+                                <div class="advisory-label">🛡️ Cultural & Biological Prevention:</div>
+                                <ul class="advisory-list" id="advPrevention"></ul>
+                            </div>
+
+                            <div class="advisory-item">
+                                <div class="advisory-label">💊 Integrated Pest Management:</div>
+                                <ul class="advisory-list" id="advManagement"></ul>
+                            </div>
+
+                            <div class="advisory-disclaimer" id="advDisclaimer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Crops & Classes Section -->
+    <section id="classes" class="section classes-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">MODEL COVERAGE</span>
+                <h2 class="section-title">Supported Agricultural Classes</h2>
+                <p class="section-desc">Trained on 15 verified classes from the PlantVillage agricultural pathology repository.</p>
+            </div>
+
+            <div class="classes-container" id="classesContainer">
+                <div class="classes-loading">Loading supported classes from backend...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Project Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ENGINEERING OVERVIEW</span>
+                <h2 class="section-title">System Architecture & Methodology</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🧠</div>
+                    <h3>Transfer Learning Architecture</h3>
+                    <p>
+                        Employs MobileNetV2 with inverted residual bottlenecks and depthwise separable convolutions pretrained on ImageNet. A custom classification head features GlobalAveragePooling2D, BatchNormalization, and Dropout for robust feature extraction.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-icon">📊</div>
+                    <h3>Rigorous 70:15:15 Split</h3>
+                    <p>
+                        A strict stratified 70% train, 15% validation, and 15% testing split is maintained with deterministic seed 42. Duplicate hash filtering and corrupted file removal guarantee zero test set data leakage.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-icon">⚡</div>
+                    <h3>Modular FastAPI Backend</h3>
+                    <p>
+                        High-throughput asynchronous Python FastAPI service with strict MIME type validation, file payload limits, CORS security, structured health checks, and Swagger OpenAPI interactive documentation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="brand-icon">🌱</span>
+                <strong>AI Crop Disease Detection and Advisory System</strong>
+            </div>
+            <p class="footer-text">
+                B.Tech CSE (AI/ML) Major Project • Developed with TensorFlow, MobileNetV2, FastAPI & Vanilla Modern Frontend.
+            </p>
+            <p class="footer-links">
+                <a href="/docs" target="_blank">Swagger Documentation</a> •
+                <a href="#detection">Disease Scanner</a> •
+                <a href="#classes">Classes Catalog</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

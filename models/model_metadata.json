@@ -1,0 +1,14 @@
+{
+    "model_architecture": "HistGradientBoostingVisionClassifier",
+    "feature_extractor": "MultiScale_ColorSpatial_Moments",
+    "feature_dim": 822,
+    "num_classes": 15,
+    "train_samples": 14438,
+    "val_samples": 3095,
+    "train_accuracy": 98.43,
+    "validation_accuracy": 84.68,
+    "train_loss": 0.0668,
+    "validation_loss": 0.4972,
+    "training_duration_seconds": 180.75,
+    "timestamp": "2026-11-17 13:22:24"
+}
